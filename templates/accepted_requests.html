@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+      <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Free Bootstrap Admin Template : Binary Admin</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link  href="{{url_for('static',filename='assets/css/bootstrap.css')}}" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link  href="{{url_for('static',filename='assets/css/font-awesome.css')}}" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="{{url_for('static',filename='assets/js/morris/morris-0.4.3.min.css')}}" rel="stylesheet"   />
+        <!-- CUSTOM STYLES-->
+    <link  href="{{url_for('static',filename='assets/css/custom.css')}}" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+   <script src="http://connect.facebook.net/en_US/all.js"></script>
+  
+</head>
+<body>
+  {% block body %}  <div id="wrapper" style="background-color: gray;">
+        <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="background-color: #4D4D4D;" href="#"></a>
+            </div>
+  <div style="width: 65%;color: white;
+padding: 15px 50px 5px 50px;
+float: right;
+font-size: 16px;">{{ngo.name}} </div>
+        </nav>
+           <!-- /. NAV TOP  -->
+                <nav class="navbar-default navbar-side" style="background-color: gray;" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+				<li class="text-center">
+                    <img src="assets/img/find_user.png" onerror="this.src='https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQZ2NewXpec2Y_gdagNco2i67wG8JwOkeqepdQiz6MFuEm5ZH2h';" class="user-image img-responsive"/>
+					</li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" style="background-color: #CFD8DC;">
+
+{% for entry in response %}
+            <div class="row">
+                <div class="col-md-12" style="background-color:white; padding-bottom: 10px;padding-top: 10px;box-shadow: 1px 1px 1px 1px #888888;margin-bottom:30px">
+                  <div style="width:50%;float:left">
+                <h2 style="text-align:left;word-wrap: break-word;">{{entry.user}}</h2>
+                <ul style="list-style:none padding-left: 0px;list-style: none;line-height: 2;padding-left: 0px;}">
+                    <li style="text-align: left;word-wrap: break-word;">Address: {{entry.address}}</li>
+                    <li style="text-align: left;word-wrap: break-word;">Description :{{entry.description}}</li>
+                    <li style="text-align: left;word-wrap: break-word;">Quantity :{{entry.quantity}}</li>
+                    <li style="text-align: left;word-wrap: break-word;">Contact Details: {{entry.contact_details}}</li>
+                  </div>
+                  <div style="width:50%;float:left">
+                  <ul style="list-style:none;margin-bottom: 0px;margin-left: 0px;"> <li style="text-align: center;"><img src="{{entry.image}}" class="img-rounded" style="width:100%;height: 261px;"></li></ul>
+                  </div>
+
+                </ul>
+                <div class="col-md-12"  >
+                  <button type="button" class="btn btn-success" id="modal" >Award Points</button>
+                </div>
+            </div>
+<!--favcytest();-->
+
+</div>
+{% endfor %}
+        </div>
+     <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="{{url_for('static',filename='assets/js/jquery-1.10.2.js')}}"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="{{url_for('static',filename='assets/js/bootstrap.min.js')}}"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script  src="{{url_for('static',filename='assets/js/jquery.metisMenu.js')}}"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+     <script src="{{url_for('static',filename='assets/js/morris/raphael-2.1.0.min.js')}}"></script>
+    <script src="{{url_for('static',filename='assets/js/morris/morris.js')}}"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="{{url_for('static',filename='assets/js/custom.js')}}"></script>
+
+
+
+    <!--<script>
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 8
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJtJ-dXTCWBTlYTJHrNOeAPCi2wuZJRmI&callback=initMap"
+            async defer></script>
+   -->
+</body>{% endblock %}
+</html>
